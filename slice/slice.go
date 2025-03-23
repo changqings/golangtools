@@ -1,15 +1,15 @@
 package slice
 
-import (
-	"slices"
-)
-
+// Depulicate removes duplicate elements from a string slice
+// use a map to store the unique elements
 func Depulicate(s []string) []string {
-	result := make([]string, 0)
+	r := make([]string, 0)
+	m := make(map[string]bool)
+
 	for _, v := range s {
-		if !slices.Contains(result, v) {
-			result = append(result, v)
+		if !m[v] {
+			r = append(r, v)
 		}
 	}
-	return result
+	return r
 }
